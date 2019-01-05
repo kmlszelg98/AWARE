@@ -1,4 +1,4 @@
-package com.aware.plugin.template;
+package com.aware.plugin.emotions;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;
