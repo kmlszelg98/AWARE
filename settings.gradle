@@ -1,2 +1,2 @@
-include ':com.aware.plugin.emotions'
+include ':com.aware.plugin.emotionsAML_AGH'
 //, ':com.aware.plugin.emotions.lib'

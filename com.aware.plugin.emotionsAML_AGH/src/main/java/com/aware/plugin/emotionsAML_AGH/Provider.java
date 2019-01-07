@@ -1,4 +1,4 @@
-package com.aware.plugin.emotions;
+package com.aware.plugin.emotionsAML_AGH;
 
 import android.content.ContentProvider;
 import android.content.ContentResolver;

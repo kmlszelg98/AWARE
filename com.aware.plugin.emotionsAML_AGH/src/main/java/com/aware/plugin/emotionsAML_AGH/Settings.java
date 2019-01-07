@@ -1,4 +1,4 @@
-package com.aware.plugin.emotions;
+package com.aware.plugin.emotionsAML_AGH;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;

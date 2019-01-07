@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/hello"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Latest emotions detected during plugin work"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#F44336" />
+
+    <TextView
+        android:id="@+id/file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="File"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#2196F3" />
+
+    <TextView
+        android:id="@+id/anger"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Anger"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/contempt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contempt"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/disgust"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Disgust"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/fear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fear"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/happiness"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Happiness"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/neutral"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Neutral"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/sadness"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sadness"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/surprise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Surprise"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Details" />
+
+</LinearLayout>

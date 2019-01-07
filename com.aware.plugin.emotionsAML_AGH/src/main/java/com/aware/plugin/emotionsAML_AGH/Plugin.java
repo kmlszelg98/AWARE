@@ -1,17 +1,31 @@
-package com.aware.plugin.emotions;
+package com.aware.plugin.emotionsAML_AGH;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.FileObserver;
+import android.util.Log;
 
 import com.aware.Accelerometer;
 import com.aware.Aware;
 import com.aware.Aware_Preferences;
+import com.aware.Locations;
 import com.aware.Screen;
+import com.aware.plugin.emotionsAML_AGH.database.DBManager;
+import com.aware.plugin.emotionsAML_AGH.results.MSFaceApi;
 import com.aware.utils.Aware_Plugin;
 
+import org.json.JSONException;
+
+import java.io.IOException;
+
 public class Plugin extends Aware_Plugin {
+
+    DirectoryFileObserver directoryFileObserver;
+    private static DBManager dbManager;
+    private static ContentValues currentContent = new ContentValues();
 
     @Override
     public void onCreate() {
@@ -34,10 +48,43 @@ public class Plugin extends Aware_Plugin {
             }
         };
 
+        directoryFileObserver = new DirectoryFileObserver(getGalleryPath());
+        directoryFileObserver.startWatching();
+
+        dbManager = new DBManager(this);
+        dbManager.open();
+
         //Add permissions you need (Android M+).
         //By default, AWARE asks access to the #Manifest.permission.WRITE_EXTERNAL_STORAGE
 
         //REQUIRED_PERMISSIONS.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+    }
+
+    private static String getGalleryPath() {
+        return Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DCIM + "/Camera/";
+    }
+
+    public static class DirectoryFileObserver extends FileObserver {
+        String aboslutePath = "path to your directory";
+
+        public DirectoryFileObserver(String path) {
+            super(path, FileObserver.CREATE);
+            aboslutePath = path;
+        }
+
+        @Override
+        public void onEvent(int event, String path) {
+            if (path != null) {
+                Log.e("FileObserver: ", "File Created");
+                Log.e("FileObserver: ", path);
+                try {
+                    MSFaceApi faceApi = new MSFaceApi();
+                    currentContent = faceApi.detect(path);
+                } catch (IOException | JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     /**
@@ -75,7 +122,17 @@ public class Plugin extends Aware_Plugin {
             Accelerometer.setSensorObserver(new Accelerometer.AWARESensorObserver() {
                 @Override
                 public void onAccelerometerChanged(ContentValues contentValues) {
-                    sendBroadcast(new Intent("ACCELEROMETER_DATA").putExtra("data", contentValues));
+                    //ContentValues values = new ContentValues();
+                    //values.put("Some Key","Some Value");
+                    sendBroadcast(new Intent("ACCELEROMETER_DATA").putExtra("data", currentContent));
+                }
+            });
+
+            Aware.startLocations(this);
+            Locations.setSensorObserver(new Locations.AWARESensorObserver() {
+                @Override
+                public void onLocationChanged(ContentValues contentValues) {
+                    sendBroadcast(new Intent("LOCATIONS_DATA").putExtra("data", contentValues));
                 }
             });
 
@@ -123,7 +180,6 @@ public class Plugin extends Aware_Plugin {
     @Override
     public void onDestroy() {
         super.onDestroy();
-
         //Turn off the sync-adapter if part of a study
         if (Aware.isStudy(this) && (getApplicationContext().getPackageName().equalsIgnoreCase("com.aware.phone") || getApplicationContext().getResources().getBoolean(R.bool.standalone))) {
             ContentResolver.removePeriodicSync(
@@ -137,5 +193,14 @@ public class Plugin extends Aware_Plugin {
 
         //Stop AWARE instance in plugin
         Aware.stopAWARE(this);
+    }
+
+    public static void insert() {
+        dbManager.insert(currentContent);
+        //dbManager.get(1);
+    }
+
+    public static DBManager getDbManager() {
+        return dbManager;
     }
 }

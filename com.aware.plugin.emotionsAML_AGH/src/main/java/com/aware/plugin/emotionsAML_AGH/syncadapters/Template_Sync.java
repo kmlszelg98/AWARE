@@ -1,4 +1,4 @@
-package com.aware.plugin.emotions.syncadapters;
+package com.aware.plugin.emotionsAML_AGH.syncadapters;
 
 import android.app.Service;
 import android.content.Intent;
@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 
-import com.aware.plugin.emotions.Provider;
+import com.aware.plugin.emotionsAML_AGH.Provider;
 import com.aware.syncadapters.AwareSyncAdapter;
 
 /**
