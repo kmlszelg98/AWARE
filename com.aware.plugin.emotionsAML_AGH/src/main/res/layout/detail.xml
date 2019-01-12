@@ -5,95 +5,115 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/hello"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="DETAILS"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#2196F3" />
 
-    <TextView
-        android:id="@+id/file"
-        android:layout_width="match_parent"
+    <TableLayout
+        android:id="@+id/tlPool"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="File"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#2196F3" />
+        android:layout_weight="1"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
 
-    <TextView
-        android:id="@+id/anger"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Anger"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#ff888888" />
+        <TableRow
+            android:id="@+id/row1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
 
-    <TextView
-        android:id="@+id/contempt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Contempt"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#ff888888" />
+            <Button
+                android:id="@+id/angryBtn"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_column="2"
+                android:background="@drawable/info_angry"
+                android:lines="2"
+                android:text="Angry \n 0"
+                android:textColor="@color/Black" />
 
-    <TextView
-        android:id="@+id/disgust"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Disgust"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#ff888888" />
+            <Button
+                android:id="@+id/contemptBtn"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_column="2"
+                android:background="@drawable/info_contempt"
+                android:lines="2"
+                android:text="Contempt \n 0"
+                android:textColor="@color/Black" />
 
-    <TextView
-        android:id="@+id/fear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Fear"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#ff888888" />
+            <Button
+                android:id="@+id/disgustBtn"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_column="2"
+                android:background="@drawable/info_disgust"
+                android:lines="2"
+                android:text="Disgust \n 0"
+                android:textColor="@color/Black" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/row4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
 
-    <TextView
-        android:id="@+id/happiness"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Happiness"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#ff888888" />
+            <Button
+                android:id="@+id/fearBtn"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_column="2"
+                android:background="@drawable/info_fear"
+                android:lines="2"
+                android:text="Fear \n 0"
+                android:textColor="@color/Black" />
 
-    <TextView
-        android:id="@+id/neutral"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Neutral"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#ff888888" />
+            <Button
+                android:id="@+id/happinessBtn"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_column="2"
+                android:background="@drawable/info_happy"
+                android:lines="2"
+                android:text="Happiness \n 0"
+                android:textColor="@color/Black" />
 
-    <TextView
-        android:id="@+id/sadness"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sadness"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#ff888888" />
+            <Button
+                android:id="@+id/neutralBtn"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_column="2"
+                android:background="@drawable/info_neutral"
+                android:lines="2"
+                android:text="Neutral \n 0"
+                android:textColor="@color/Black" />
 
-    <TextView
-        android:id="@+id/surprise"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Surprise"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#ff888888" />
+        </TableRow>
 
+        <TableRow
+            android:id="@+id/row3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/sadnessBtn"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_column="2"
+                android:background="@drawable/info_sadness"
+                android:lines="2"
+                android:text="Sadness \n 0"
+                android:textColor="@color/Black" />
+
+            <Button
+                android:id="@+id/surpriseBtn"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_column="2"
+                android:background="@drawable/info_surprise"
+                android:lines="2"
+                android:text="Surprise \n 0"
+                android:textColor="@color/Black" />
+        </TableRow>
+    </TableLayout>
 
 </LinearLayout>

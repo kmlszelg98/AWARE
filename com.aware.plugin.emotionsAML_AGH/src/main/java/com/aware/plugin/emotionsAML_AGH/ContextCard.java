@@ -4,9 +4,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.aware.utils.IContextCard;
 
@@ -19,6 +21,7 @@ public class ContextCard implements IContextCard {
     static View card = null;
     static View detail = null;
     static View result = null;
+    static View summary = null;
 
     @Override
     public View getContextCard(Context context) {
@@ -26,21 +29,46 @@ public class ContextCard implements IContextCard {
         card = LayoutInflater.from(context).inflate(R.layout.card, null);
         detail = card.findViewById(R.id.detail);
         result = card.findViewById(R.id.result);
+        summary = card.findViewById(R.id.summary);
 
 
         Button clickButton = card.findViewById(R.id.button4);
         clickButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (detail.getVisibility()==View.GONE) {
+                if (detail.getVisibility() == View.GONE) {
                     card.findViewById(R.id.detail).setVisibility(View.VISIBLE);
                     result.setVisibility(View.GONE);
+                    ((TextView) card.findViewById(R.id.hello)).setText("DETAILS");
                 } else {
                     card.findViewById(R.id.detail).setVisibility(View.GONE);
                     result.setVisibility(View.VISIBLE);
+                    ((TextView) card.findViewById(R.id.hello)).setText("LAST MEASUREMENT");
                 }
             }
         });
+
+        Button sumBtn = result.findViewById(R.id.button);
+        sumBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                card.findViewById(R.id.cardLayout).setVisibility(View.GONE);
+                result.setVisibility(View.GONE);
+                summary.setVisibility(View.VISIBLE);
+            }
+        });
+
+        Button back = summary.findViewById(R.id.backBtn);
+        back.setOnClickListener( new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                summary.setVisibility(View.GONE);
+                card.findViewById(R.id.cardLayout).setVisibility(View.VISIBLE);
+                result.setVisibility(View.VISIBLE);
+            }
+        });
+        advancedListeners();
 
 
 
@@ -71,6 +99,65 @@ public class ContextCard implements IContextCard {
                 ((TextView) card.findViewById(R.id.surprise)).setText("Surprise: " + data.getAsString(EmotionsVariables.surprise));*/
             }
         }
+    }
+
+    public void advancedListeners() {
+        summary.findViewById(R.id.angryBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                summary.findViewById(R.id.button8).setBackgroundColor(Color.parseColor("#FA8072"));
+            }
+        });
+
+        summary.findViewById(R.id.contemptBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                summary.findViewById(R.id.button8).setBackgroundColor(Color.parseColor("#D8BFD8"));
+            }
+        });
+
+        summary.findViewById(R.id.disgustBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                summary.findViewById(R.id.button8).setBackgroundColor(Color.parseColor("#DEB887"));
+            }
+        });
+
+        summary.findViewById(R.id.fearBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                summary.findViewById(R.id.button8).setBackgroundColor(Color.parseColor("#8FBC8F"));
+            }
+        });
+
+        summary.findViewById(R.id.happinessBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                summary.findViewById(R.id.button8).setBackgroundColor(Color.parseColor("#90EE90"));
+            }
+        });
+
+        summary.findViewById(R.id.neutralBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                summary.findViewById(R.id.button8).setBackgroundColor(Color.parseColor("#B0E0E6"));
+            }
+        });
+
+        summary.findViewById(R.id.sadnessBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                summary.findViewById(R.id.button8).setBackgroundColor(Color.parseColor("#87CEEB"));
+            }
+        });
+
+        summary.findViewById(R.id.surpriseBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                summary.findViewById(R.id.button8).setBackgroundColor(Color.parseColor("#FFDEAD"));
+            }
+        });
+
     }
 
 }

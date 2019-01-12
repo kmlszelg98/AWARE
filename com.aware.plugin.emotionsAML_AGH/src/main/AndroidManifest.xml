@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.aware.plugin.emotionsAML_AGH">
+    package="com.aware.plugin.emotionsAML_AGH"
+    android:installLocation="preferExternal">
 
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
     <application

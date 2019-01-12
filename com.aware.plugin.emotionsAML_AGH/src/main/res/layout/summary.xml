@@ -1,0 +1,115 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation = "vertical"
+    android:gravity="center">
+    <!--android:paddingLeft="@dimen/activity_horizontal_margin"-->
+    <!--android:paddingRight="@dimen/activity_horizontal_margin"-->
+    <!--android:paddingTop="@dimen/activity_vertical_margin"-->
+    <!--android:paddingBottom="@dimen/activity_vertical_margin">-->
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="320dp"
+        android:layout_height="250px"
+        android:layout_weight="1"
+        android:background="@color/PowderBlue"
+        android:gravity="center_horizontal"
+        android:paddingTop="50px" />
+
+    <TableLayout
+        android:id="@+id/tlPool"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TableRow
+            android:id="@+id/row1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/angryBtn"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_column="2"
+                android:background="@drawable/info_angry" />
+
+            <Button
+                android:id="@+id/contemptBtn"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_column="2"
+                android:background="@drawable/info_contempt" />
+
+            <Button
+                android:id="@+id/disgustBtn"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_column="2"
+                android:background="@drawable/info_disgust" />
+
+            <Button
+                android:id="@+id/fearBtn"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_column="2"
+                android:background="@drawable/info_fear" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/happinessBtn"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_column="2"
+                android:background="@drawable/info_happy" />
+
+            <Button
+                android:id="@+id/neutralBtn"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_column="2"
+                android:background="@drawable/info_neutral" />
+
+            <Button
+                android:id="@+id/sadnessBtn"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_column="2"
+                android:background="@drawable/info_sadness" />
+
+            <Button
+                android:id="@+id/surpriseBtn"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_column="2"
+                android:background="@drawable/info_surprise" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/backBtn"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_column="2"
+                android:background="@drawable/back"
+                android:textColor="#ff888888" />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>
