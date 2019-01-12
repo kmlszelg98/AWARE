@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/hello"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DETAILS"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#2196F3" />
+
+    <TextView
+        android:id="@+id/file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="File"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#2196F3" />
+
+    <TextView
+        android:id="@+id/anger"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Anger"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff888888" />
+
+    <TextView
+        android:id="@+id/contempt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contempt"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff888888" />
+
+    <TextView
+        android:id="@+id/disgust"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Disgust"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff888888" />
+
+    <TextView
+        android:id="@+id/fear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fear"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff888888" />
+
+    <TextView
+        android:id="@+id/happiness"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Happiness"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff888888" />
+
+    <TextView
+        android:id="@+id/neutral"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Neutral"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff888888" />
+
+    <TextView
+        android:id="@+id/sadness"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sadness"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff888888" />
+
+    <TextView
+        android:id="@+id/surprise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Surprise"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ff888888" />
+
+
+</LinearLayout>

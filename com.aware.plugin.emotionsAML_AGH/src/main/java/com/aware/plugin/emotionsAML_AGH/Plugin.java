@@ -11,7 +11,6 @@ import android.util.Log;
 import com.aware.Accelerometer;
 import com.aware.Aware;
 import com.aware.Aware_Preferences;
-import com.aware.Locations;
 import com.aware.Screen;
 import com.aware.plugin.emotionsAML_AGH.database.DBManager;
 import com.aware.plugin.emotionsAML_AGH.results.MSFaceApi;
@@ -34,7 +33,7 @@ public class Plugin extends Aware_Plugin {
         //This allows plugin data to be synced on demand from broadcast Aware#ACTION_AWARE_SYNC_DATA
         AUTHORITY = Provider.getAuthority(this);
 
-        TAG = "AWARE::"+getResources().getString(R.string.app_name);
+        TAG = "AWARE::" + getResources().getString(R.string.app_name);
 
         /**
          * Plugins share their current status, i.e., context using this method.
@@ -91,9 +90,11 @@ public class Plugin extends Aware_Plugin {
      * Allow callback to other applications when data is stored in provider
      */
     private static AWARESensorObserver awareSensor;
+
     public static void setSensorObserver(AWARESensorObserver observer) {
         awareSensor = observer;
     }
+
     public static AWARESensorObserver getSensorObserver() {
         return awareSensor;
     }
@@ -124,15 +125,7 @@ public class Plugin extends Aware_Plugin {
                 public void onAccelerometerChanged(ContentValues contentValues) {
                     //ContentValues values = new ContentValues();
                     //values.put("Some Key","Some Value");
-                    sendBroadcast(new Intent("ACCELEROMETER_DATA").putExtra("data", currentContent));
-                }
-            });
-
-            Aware.startLocations(this);
-            Locations.setSensorObserver(new Locations.AWARESensorObserver() {
-                @Override
-                public void onLocationChanged(ContentValues contentValues) {
-                    sendBroadcast(new Intent("LOCATIONS_DATA").putExtra("data", contentValues));
+                    sendBroadcast(new Intent("DATA").putExtra("data", currentContent));
                 }
             });
 
