@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    android:background="@color/LightGrey">
 
     <Space
         android:layout_width="match_parent"
@@ -14,6 +15,8 @@
         android:layout_height="300px"
         android:background="@android:color/darker_gray"
         android:drawablePadding="50dp"
+        android:textColor="@color/Black"
+        android:textStyle="bold|italic"
         android:text="NONE" />
 
     <Button

@@ -13,6 +13,7 @@ import com.aware.Aware;
 import com.aware.Aware_Preferences;
 import com.aware.Screen;
 import com.aware.plugin.emotionsAML_AGH.database.DBManager;
+import com.aware.plugin.emotionsAML_AGH.results.EmotionsVariables;
 import com.aware.plugin.emotionsAML_AGH.results.MSFaceApi;
 import com.aware.utils.Aware_Plugin;
 
@@ -24,6 +25,7 @@ public class Plugin extends Aware_Plugin {
 
     DirectoryFileObserver directoryFileObserver;
     private static DBManager dbManager;
+    private static ContentValues copy = new ContentValues();
     private static ContentValues currentContent = new ContentValues();
 
     @Override
@@ -53,6 +55,12 @@ public class Plugin extends Aware_Plugin {
         dbManager = new DBManager(this);
         dbManager.open();
 
+        currentContent = dbManager.get();
+        System.out.println("CURRENT VALUE");
+        System.out.println(currentContent);
+        copy = new ContentValues(currentContent);
+
+
         //Add permissions you need (Android M+).
         //By default, AWARE asks access to the #Manifest.permission.WRITE_EXTERNAL_STORAGE
 
@@ -78,7 +86,9 @@ public class Plugin extends Aware_Plugin {
                 Log.e("FileObserver: ", path);
                 try {
                     MSFaceApi faceApi = new MSFaceApi();
-                    currentContent = faceApi.detect(path);
+                    currentContent = faceApi.detect(aboslutePath+path);
+                    insert();
+                    updateContent(currentContent.getAsString("EMOTION"));
                 } catch (IOException | JSONException e) {
                     e.printStackTrace();
                 }
@@ -123,8 +133,6 @@ public class Plugin extends Aware_Plugin {
             Accelerometer.setSensorObserver(new Accelerometer.AWARESensorObserver() {
                 @Override
                 public void onAccelerometerChanged(ContentValues contentValues) {
-                    //ContentValues values = new ContentValues();
-                    //values.put("Some Key","Some Value");
                     sendBroadcast(new Intent("DATA").putExtra("data", currentContent));
                 }
             });
@@ -190,10 +198,26 @@ public class Plugin extends Aware_Plugin {
 
     public static void insert() {
         dbManager.insert(currentContent);
-        //dbManager.get(1);
     }
 
     public static DBManager getDbManager() {
         return dbManager;
+    }
+
+    public static void  updateContent(String key) {
+        int value = copy.getAsInteger(key+"_SUM");
+        copy.remove(key+"_SUM");
+        copy.put(key+"_SUM",value+1);
+
+        currentContent.put(EmotionsVariables.anger+"_SUM",copy.getAsInteger(EmotionsVariables.anger+"_SUM"));
+        currentContent.put(EmotionsVariables.contempt+"_SUM",copy.getAsInteger(EmotionsVariables.contempt+"_SUM"));
+        currentContent.put(EmotionsVariables.disgust+"_SUM",copy.getAsInteger(EmotionsVariables.disgust+"_SUM"));
+        currentContent.put(EmotionsVariables.fear+"_SUM",copy.getAsInteger(EmotionsVariables.fear+"_SUM"));
+        currentContent.put(EmotionsVariables.happiness+"_SUM",copy.getAsInteger(EmotionsVariables.happiness+"_SUM"));
+        currentContent.put(EmotionsVariables.neutral+"_SUM",copy.getAsInteger(EmotionsVariables.neutral+"_SUM"));
+        currentContent.put(EmotionsVariables.sadness+"_SUM",copy.getAsInteger(EmotionsVariables.sadness+"_SUM"));
+        currentContent.put(EmotionsVariables.surprise+"_SUM",copy.getAsInteger(EmotionsVariables.surprise+"_SUM"));
+
+        copy = new ContentValues(currentContent);
     }
 }

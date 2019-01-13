@@ -18,7 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     static final String DB_NAME = "EMOTIONS.DB";
 
     // database version
-    static final int DB_VERSION = 1;
+    static final int DB_VERSION = 2;
 
     // Creating table query
     private static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + _ID
@@ -31,7 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + EmotionsVariables.happiness + " TEXT,"
             + EmotionsVariables.neutral + " TEXT,"
             + EmotionsVariables.sadness + " TEXT,"
-            + EmotionsVariables.surprise + " TEXT);";
+            + EmotionsVariables.surprise + " TEXT, EMOTION TEXT);";
 
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
